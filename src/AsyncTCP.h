@@ -55,9 +55,11 @@ extern "C" {
   #define CONFIG_ASYNC_TCP_RUNNING_CORE -1 // any available core
 #endif
 
-// guard AsyncTCP task with watchdog
+// guard AsyncTCP task with watchdog if enabled
+#ifndef CONFIG_ASYNC_TCP_NO_WATCHDOG
 #ifndef CONFIG_ASYNC_TCP_USE_WDT
   #define CONFIG_ASYNC_TCP_USE_WDT 1
+#endif
 #endif
 
 #ifndef CONFIG_ASYNC_TCP_STACK_SIZE

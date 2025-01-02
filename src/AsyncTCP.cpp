@@ -338,7 +338,7 @@ static bool customTaskCreateUniversal(
     return xTaskCreatePinnedToCore(pxTaskCode, pcName, usStackDepth, pvParameters, uxPriority, pxCreatedTask, xCoreID);
   } else {
 #endif
-    return xTaskCreate(pxTaskCode, pcName, usStackDepth, pvParameters, uxPriority, pxCreatedTask);
+    return xTaskCreatePinnedToCore(pxTaskCode, pcName, usStackDepth, pvParameters, uxPriority, pxCreatedTask,0 );
 #ifndef CONFIG_FREERTOS_UNICORE
   }
 #endif
